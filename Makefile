@@ -9,6 +9,7 @@ SRC_DIR     = src
 INC_DIR     = inc
 
 OPENCM3_DIR = hal
+LIB_INC_DIR = include/stmk/eefs
 
 DRIVERS_SRC_DIR     = src/drivers
 DRIVERS_INC_DIR     = include/stmk/drivers
@@ -36,6 +37,7 @@ ARCH_FLAGS	= -mthumb -mcpu=cortex-m4 $(FP_FLAGS)
 LDSCRIPT = linkerscript.ld
 LDLIBS		+= -l$(LIBNAME)
 LDFLAGS		+= -L$(OPENCM3_DIR)/lib
+LDFLAGS   += -Llib
 
 ###############################################################################
 # Includes
@@ -45,6 +47,7 @@ DEFS		+= -I$(INC_DIR)
 DEFS		+= -I$(DRIVERS_INC_DIR)
 DEFS 		+= -I$(COMMS_INC_DIR)
 DEFS 		+= -I$(UTILS_INC_DIR)
+DEFS 		+= -I$(LIB_INC_DIR)
 
 
 ###############################################################################
@@ -72,6 +75,7 @@ CSTD		?= -std=c99
 OBJS		+= $(BINARY).o
 OBJS		+= $(SRC_DIR)/stmk_kernel.o
 OBJS		+= $(UTILS_SRC_DIR)/ring_buffer.o
+OBJS		+= $(UTILS_SRC_DIR)/systemlog.o
 OBJS		+= $(DRIVERS_SRC_DIR)/i2c/i2c.o
 OBJS		+= $(DRIVERS_SRC_DIR)/i2c/i2c_stm32f4.o
 OBJS		+= $(DRIVERS_SRC_DIR)/uart/uart.o
@@ -117,6 +121,7 @@ endif
 # Used libraries
 
 LDLIBS		+= -Wl,--start-group -lc -lgcc -lnosys -Wl,--end-group
+LDLIBS		+= -leefs
 
 ###############################################################################
 ###############################################################################
