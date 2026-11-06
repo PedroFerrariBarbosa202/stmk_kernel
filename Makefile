@@ -11,6 +11,8 @@ INC_DIR     = inc
 OPENCM3_DIR = hal
 LIB_INC_DIR = include/stmk/eefs
 
+STMK_INC_DIR = include/stmk
+
 DRIVERS_SRC_DIR     = src/drivers
 DRIVERS_INC_DIR     = include/stmk/drivers
 
@@ -43,6 +45,7 @@ LDFLAGS   += -Llib
 # Includes
 
 DEFS		+= -I$(OPENCM3_DIR)/include
+DEFS		+= -I$(STMK_INC_DIR)
 DEFS		+= -I$(INC_DIR)
 DEFS		+= -I$(DRIVERS_INC_DIR)
 DEFS 		+= -I$(COMMS_INC_DIR)
@@ -76,9 +79,10 @@ OBJS		+= $(BINARY).o
 OBJS		+= $(SRC_DIR)/stmk_kernel.o
 OBJS		+= $(UTILS_SRC_DIR)/ring_buffer.o
 OBJS		+= $(UTILS_SRC_DIR)/systemlog.o
-OBJS		+= $(DRIVERS_SRC_DIR)/i2c/i2c.o
-OBJS		+= $(DRIVERS_SRC_DIR)/i2c/i2c_stm32f4.o
-OBJS		+= $(DRIVERS_SRC_DIR)/uart/uart.o
+OBJS		+= $(DRIVERS_SRC_DIR)/i2c.o
+OBJS		+= $(DRIVERS_SRC_DIR)/i2c_stm32f4.o
+OBJS		+= $(DRIVERS_SRC_DIR)/flash.o
+OBJS		+= $(DRIVERS_SRC_DIR)/uart.o
 OBJS		+= $(COMMS_SRC_DIR)/comms.o
 
 ###############################################################################

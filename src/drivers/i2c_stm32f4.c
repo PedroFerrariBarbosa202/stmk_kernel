@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 #include "errno.h"
-#include "i2c/i2c.h"
+#include "i2c.h"
 
 static inline uint32_t port_to_base_address(const enum i2c_port port) {
   uint32_t addr = UINT32_MAX;

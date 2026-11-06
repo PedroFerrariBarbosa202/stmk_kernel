@@ -1,7 +1,7 @@
 #include <stdint.h>
 
 #include "errno.h"
-#include "i2c/i2c.h"
+#include "i2c.h"
 
 error_t i2c_init_controller(struct i2c_controller **controller,
                             const enum i2c_port port,

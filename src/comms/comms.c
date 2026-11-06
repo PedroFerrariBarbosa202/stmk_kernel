@@ -1,6 +1,6 @@
 #include "comms.h"
 #include "errno.h"
-#include "uart/uart.h"
+#include "uart.h"
 
 #include <eefs.h>
 #include <stdlib.h>

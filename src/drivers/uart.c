@@ -3,7 +3,7 @@
 #include <libopencm3/stm32/usart.h>
 
 #include "ring_buffer.h"
-#include "uart/uart.h"
+#include "uart.h"
 
 #define BAUD_RATE (115200)
 #define RING_BUFFER_SIZE (64)
